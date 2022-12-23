@@ -1,6 +1,6 @@
 import React from 'react';
 import { createRoot } from 'react-dom/client';
-import App from './root/App';
+import App from './roots/App';
 
 /**
  * Container for root
