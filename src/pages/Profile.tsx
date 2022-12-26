@@ -1,6 +1,6 @@
 import DefaultLayout from "../components/layout/DefaultLayout";
 
-function PokemonProfile() {
+function Profile() {
   return (
     <DefaultLayout>
       <div></div>
@@ -8,4 +8,4 @@ function PokemonProfile() {
   );
 }
 
-export default PokemonProfile;
+export default Profile;

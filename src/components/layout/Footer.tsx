@@ -1,4 +1,5 @@
 import { memo } from 'react';
+import Positioner from './Positioner';
 
 /**
  * Footer for layouts
@@ -8,8 +9,10 @@ import { memo } from 'react';
  */
 function Footer() {
   return (
-    <footer className="flex items-center bg-[#f0f0f0] border-y border-[#b0b0b0] min-h-[50px]">
-      <div className="text-[#a0a0a0] flex-[1_1_auto] px-[10px] lg:max-w-[1200px] m-[0_auto]">Powered By PokéApi. Designed by Kazoli</div>
+    <footer className="flex items-center bg-[#f0f0f0] border-y border-[#b0b0b0] min-h-[60px]">
+      <Positioner className="text-[#a0a0a0] flex-[1_1_auto]">
+        Powered By PokéApi. Designed by Kazoli.
+      </Positioner>
     </footer>
   );
 }

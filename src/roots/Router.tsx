@@ -1,7 +1,7 @@
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
-import PokemonFinder from '../pages/PokemonFinder';
-import PokemonProfile from '../pages/PokemonProfile';
-import PokemonCatched from '../pages/PokemonCatched';
+import Main from '../pages/Main';
+import Profile from '../pages/Profile';
+import Catched from '../pages/Catched';
 import NotFound from '../pages/NotFound';
 
 /**
@@ -14,9 +14,9 @@ function Router() {
   return (
     <BrowserRouter>
       <Routes>
-        <Route path="/" element={<PokemonFinder />} />
-        <Route path="/profile" element={<PokemonProfile />} />
-        <Route path="/catched" element={<PokemonCatched />} />
+        <Route path="/" element={<Main />} />
+        <Route path="/profile/:id" element={<Profile />} />
+        <Route path="/catched" element={<Catched />} />
         <Route path="*" element={<NotFound />} />
       </Routes>
     </BrowserRouter>

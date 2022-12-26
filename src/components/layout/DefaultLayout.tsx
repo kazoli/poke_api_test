@@ -1,3 +1,4 @@
+import { useEffect } from 'react';
 import Header from './Header';
 import Footer from './Footer';
 
@@ -19,6 +20,11 @@ type tProps = {
  * @returns {JSX.Element}
  */
 function DefaultLayout(props: tProps) {
+  useEffect(() => {
+    // scroll top in case of page change
+    window.scrollTo(0, 0);
+  }, []);
+
   return (
     <>
       <Header />
