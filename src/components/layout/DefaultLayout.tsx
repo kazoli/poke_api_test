@@ -1,4 +1,5 @@
 import { useEffect } from 'react';
+import Loading from './Loading';
 import Header from './Header';
 import Footer from './Footer';
 
@@ -10,6 +11,7 @@ import Footer from './Footer';
  */
 type tProps = {
   children: JSX.Element;
+  loading?: boolean;
 };
 
 /**
@@ -27,6 +29,7 @@ function DefaultLayout(props: tProps) {
 
   return (
     <>
+      {props.loading && <Loading />}
       <Header />
       <main>{props.children}</main>
       <Footer />

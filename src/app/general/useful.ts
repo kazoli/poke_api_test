@@ -18,3 +18,6 @@ export const getLocalStorage = (key: string) => {
     return '';
   }
 };
+
+// set first letter to capital
+export const firstCapital = (value: string) => value.charAt(0).toUpperCase() + value.slice(1);

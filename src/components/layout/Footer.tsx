@@ -1,4 +1,3 @@
-import { memo } from 'react';
 import Positioner from './Positioner';
 
 /**
@@ -17,4 +16,4 @@ function Footer() {
   );
 }
 
-export default memo(Footer);
+export default Footer;

@@ -1,4 +1,3 @@
-import { memo } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { HiOutlineMenu } from 'react-icons/hi';
 import Positioner from './Positioner';
@@ -18,14 +17,14 @@ function Header() {
       <Positioner className="flex items-center justify-between py-[5px]">
         <Logo navigate={() => navigate('/')} />
         <DropDownMenu
-          trigger={<HiOutlineMenu className="text-[2rem] cursor-pointer outline-none" />}
+          selector={<HiOutlineMenu className="text-[2rem] cursor-pointer outline-none" />}
           classContainer="relative"
           classList="bg-[#ffffff] whitespace-nowrap right-0 border border-black peer-focus:block active:block"
           classElement="block cursor-pointer p-[5px_10px] hover:bg-[#2b96d4] hover:text-[#ffffff]"
-          options={{
-            '/': 'Main page',
-            '/catched': 'My catched Pokémons',
-          }}
+          options={[
+            { key: '/', value: 'Main page' },
+            { key: '/catched', value: 'My catched Pokémons' },
+          ]}
           action={(value) => navigate(value)}
         />
       </Positioner>
@@ -33,4 +32,4 @@ function Header() {
   );
 }
 
-export default memo(Header);
+export default Header;

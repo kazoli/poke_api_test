@@ -1,17 +1,31 @@
+import axios from 'axios';
 import { createAsyncThunk } from '@reduxjs/toolkit';
 import { errorHandler } from '../general/error';
-import axios from 'axios';
+import { tPokemonSelectedTypeList, tPokemonTypes } from './pokemonTypes';
 
-// get search data from PokéApi
-export const getPokemonTypes = createAsyncThunk<object, string, { rejectValue: string }>(
-  'pokemon/getPokemonTypes',
+// get all pokémon types
+export const pokemonGetTypes = createAsyncThunk<tPokemonTypes, string, { rejectValue: string }>(
+  'pokemon/pokemonGetTypes',
   async (query, thunkAPI) => {
     try {
       const response = await axios.get(encodeURI(query));
-      console.log(response.data);
-      return response.data;
+      return response.data.results;
     } catch (error) {
       return thunkAPI.rejectWithValue(errorHandler(error));
     }
   },
 );
+
+// get pokémons for a selected type
+export const pokemonSelectedTypeList = createAsyncThunk<
+  tPokemonSelectedTypeList,
+  string,
+  { rejectValue: string }
+>('pokemon/pokemonSelectedTypeList', async (query, thunkAPI) => {
+  try {
+    const response = await axios.get(encodeURI(query));
+    return response.data.pokemon;
+  } catch (error) {
+    return thunkAPI.rejectWithValue(errorHandler(error));
+  }
+});
