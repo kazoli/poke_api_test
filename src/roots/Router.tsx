@@ -15,7 +15,7 @@ function Router() {
     <BrowserRouter>
       <Routes>
         <Route path="/" element={<Main />} />
-        <Route path="/profile/:id" element={<Profile />} />
+        <Route path="/profile" element={<Profile />} />
         <Route path="/catched" element={<Catched />} />
         <Route path="*" element={<NotFound />} />
       </Routes>

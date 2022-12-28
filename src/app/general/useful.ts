@@ -1,10 +1,22 @@
-// set local storage data
+/**
+ * Set data into localstorage
+ * @date 2022. 12. 28. - 13:03:06
+ *
+ * @param {string} key
+ * @param {(string | object | object[])} value
+ */
 export const setLocalStorage = (key: string, value: string | object | object[]) => {
   if (typeof value !== 'string') value = JSON.stringify(value);
   localStorage.setItem(key, value);
 };
 
-// get local storage data
+/**
+ * Get data from localstorage
+ * @date 2022. 12. 28. - 13:03:06
+ *
+ * @param {string} key
+ * @returns {string | object | object[]}
+ */
 export const getLocalStorage = (key: string) => {
   const value = localStorage.getItem(key);
   if (value) {
@@ -19,5 +31,11 @@ export const getLocalStorage = (key: string) => {
   }
 };
 
-// set first letter to capital
+/**
+ * Change string first letter to capital one
+ * @date 2022. 12. 28. - 13:03:06
+ *
+ * @param {string} value
+ * @returns {string}
+ */
 export const firstCapital = (value: string) => value.charAt(0).toUpperCase() + value.slice(1);

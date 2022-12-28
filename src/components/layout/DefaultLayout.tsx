@@ -2,6 +2,7 @@ import { useEffect } from 'react';
 import Loading from './Loading';
 import Header from './Header';
 import Footer from './Footer';
+import Positioner from './Positioner';
 
 /**
  * Type definition for the props
@@ -31,7 +32,9 @@ function DefaultLayout(props: tProps) {
     <>
       {props.loading && <Loading />}
       <Header />
-      <main>{props.children}</main>
+      <Positioner className="py-[20px] sm:py-[50px]">
+        <main>{props.children}</main>
+      </Positioner>
       <Footer />
     </>
   );

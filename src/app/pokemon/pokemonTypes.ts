@@ -1,11 +1,20 @@
 export type tPokemonTypes = { name: string; url: string }[];
 
-export type tPokemonSelectedTypeList = { pokemon: { name: string; url: string }; slot: number }[];
+export type tPokemonListElement = { name: string; url: string };
+
+export type tPokemonProfile = {
+  imageUrl: string;
+  name: string;
+  weight: string;
+  height: string;
+  notHiddenAbilities: string[];
+};
 
 export type tPokemonReduxState = {
   loading: boolean;
   typeSelected: string;
   typeFilter: string;
   types: null | tPokemonTypes;
-  selectedTypeList: tPokemonSelectedTypeList;
+  pokemonList: tPokemonListElement[];
+  profile: tPokemonProfile;
 };
