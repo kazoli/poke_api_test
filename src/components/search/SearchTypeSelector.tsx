@@ -1,4 +1,5 @@
 import { BsCaretDown } from 'react-icons/bs';
+import SearchElementLayout from './SearchElementLayout';
 
 type tProps = {
   selectedType: string;
@@ -6,10 +7,12 @@ type tProps = {
 
 function SearchTypeSelector(props: tProps) {
   return (
-    <div className="flex items-center justify-between flex-[1_1_auto] cursor-pointer gap-[10px]">
-      <span>{props.selectedType}</span>
-      <BsCaretDown className="mt-[3px]" />
-    </div>
+    <SearchElementLayout className="">
+      <div className="flex items-center justify-between flex-auto cursor-pointer gap-[5px]">
+        <span>{props.selectedType}</span>
+        <BsCaretDown className="mt-[3px]" />
+      </div>
+    </SearchElementLayout>
   );
 }
 

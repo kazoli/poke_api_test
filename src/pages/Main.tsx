@@ -1,7 +1,6 @@
 import { useEffect, useMemo, useState } from 'react';
 import { useAppDispatch, useAppSelector } from '../app/general/hooks';
 import { tDropDownOptions } from '../app/general/types';
-import { firstCapital } from '../app/general/useful';
 import { filterPokemonList } from '../app/pokemon/pokemonMiddleware';
 import { pokeApiUrl } from '../app/pokemon/pokemonInitialStates';
 import { tPokemonReduxState } from '../app/pokemon/pokemonTypes';
@@ -9,7 +8,7 @@ import { pokemonGetTypes, pokemonGetList } from '../app/pokemon/pokemonThunks';
 import DefaultLayout from '../components/layout/DefaultLayout';
 import SearchBar from '../components/search/SearchBar';
 import SearchTypeElement from '../components/search/SearchTypeElement';
-import PokemonList from '../components/pokemonList/PokemonList';
+import List from '../components/list/List';
 
 /**
  * Main page
@@ -21,12 +20,14 @@ function Main() {
   const dispatch = useAppDispatch();
   const pokemon = useAppSelector((state) => state.pokemon);
   const [selectedTypeUrl, setSelectedTypeUrl] = useState('');
-  const [pokemonList, setPokemonList] = useState<tPokemonReduxState['pokemonList']>([]);
+  const [pokemonList, setPokemonList] = useState<tPokemonReduxState['list']>([]);
 
   useEffect(() => {
     document.title = 'Main page';
-    // get all pokemon types avoiding potention pagination later
-    //TODO if (pokemon.types === null) dispatch(pokemonGetTypes(pokeApiUrl + 'type?limit=10000&offset=0'));
+    //TODO
+    if (pokemon.types === null) {
+      //dispatch(pokemonGetTypes(pokeApiUrl + 'type?limit=10000&offset=0'));
+    }
   }, [dispatch, pokemon.types]);
 
   const pokemonTypes: tDropDownOptions = useMemo(() => {
@@ -37,7 +38,7 @@ function Main() {
         } else {
           dropDown.push({
             key: type.name,
-            value: <SearchTypeElement typeName={firstCapital(type.name)} />,
+            value: <SearchTypeElement typeName={type.name} />,
           });
         }
         return dropDown;
@@ -52,19 +53,20 @@ function Main() {
   }, [dispatch, selectedTypeUrl]);
 
   useEffect(() => {
-    setPokemonList(filterPokemonList(pokemon.pokemonList, pokemon.typeFilter));
-  }, [pokemon.typeFilter, pokemon.pokemonList]);
+    setPokemonList(filterPokemonList(pokemon.list, pokemon.listCatched, pokemon.typeFilter));
+  }, [pokemon.list, pokemon.listCatched, pokemon.typeFilter]);
 
   return (
     pokemon.types && (
-      <DefaultLayout loading={pokemon.loading}>
+      <DefaultLayout loading={pokemon.status === 'loading'}>
         <>
           <SearchBar
-            pokemonTypeSelected={firstCapital(pokemon.typeSelected)}
+            pokemonListCatched={pokemon.listCatched}
+            pokemonTypeSelected={pokemon.typeSelected}
             pokemonTypeFilter={pokemon.typeFilter}
             pokemonTypes={pokemonTypes}
           />
-          <PokemonList pokemonList={pokemonList} />
+          <List pokemonList={pokemonList} pokemonCatched={pokemon.catched} />
         </>
       </DefaultLayout>
     )

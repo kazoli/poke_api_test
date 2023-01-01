@@ -9,7 +9,7 @@ import Positioner from './Positioner';
 function Footer() {
   return (
     <footer className="flex items-center bg-[#f0f0f0] border-y border-[#b0b0b0] min-h-[60px]">
-      <Positioner className="text-[#a0a0a0] flex-[1_1_auto]">
+      <Positioner className="text-[#a0a0a0] flex-auto">
         Powered By PokéApi. Designed by Kazoli.
       </Positioner>
     </footer>

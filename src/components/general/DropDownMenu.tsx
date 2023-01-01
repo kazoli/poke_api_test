@@ -13,7 +13,7 @@ function DropDownMenu(props: tProps) {
   return (
     <div className={props.classContainer}>
       <button className="block w-[100%] peer">{props.selector}</button>
-      <ul className={`${props.classList} hidden absolute m-[0] p-[0] list-none`}>
+      <ul className={`${props.classList} hidden absolute`}>
         {props.options.map((element, index) => (
           <li key={index} className={props.classElement} onClick={() => props.action(element.key)}>
             {element.value}

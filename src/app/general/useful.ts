@@ -39,3 +39,14 @@ export const getLocalStorage = (key: string) => {
  * @returns {string}
  */
 export const firstCapital = (value: string) => value.charAt(0).toUpperCase() + value.slice(1);
+
+/**
+ * Check an array contains an element (by the fastest indexOf method)
+ * @date 2023. 01. 01. - 14:39:52
+ *
+ * @param {string[]} haystack
+ * @param {string} needle
+ * @returns {boolean}
+ */
+export const arrayIncludes = (haystack: string[], needle: string) =>
+  haystack.indexOf(needle) !== -1;

@@ -6,8 +6,8 @@ type tProps = {
 
 function SearchTypeElement(props: tProps) {
   return (
-    <div className='flex items-center gap-[5px]'>
-      <PokeBall className="w-[1.2rem] h-[1.2rem]" />
+    <div className='group flex items-center gap-[5px] p-[5px] transition-all hover:shadow-[inset_0_0_10px_0_#f6ce09]'>
+      <PokeBall className="group-hover:rotate-[180deg] duration-500 w-[1.2rem] h-[1.2rem]" />
       <span>{props.typeName}</span>
     </div>
   );

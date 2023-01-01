@@ -3,7 +3,7 @@ import { store } from '../app/general/store';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import '../styles/index.css';
-import JumpTop from '../components/general/JumpTop';
+import JumpTop from '../components/layout/JumpTop';
 import Router from './Router';
 
 /**
