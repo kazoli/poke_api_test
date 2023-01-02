@@ -1,10 +1,23 @@
 import { BsCaretDown } from 'react-icons/bs';
 import SearchElementLayout from './SearchElementLayout';
 
+/**
+ * Type definition of properties of the component
+ * @date 2023. 01. 02. - 16:05:29
+ *
+ * @typedef {tProps}
+ */
 type tProps = {
   selectedType: string;
 };
 
+/**
+ * Selector component of Pokémon types
+ * @date 2023. 01. 02. - 16:05:29
+ *
+ * @prop {string} selectedType Name of the selected type
+ * @returns {JSX.Element}
+ */
 function SearchTypeSelector(props: tProps) {
   return (
     <SearchElementLayout className="">

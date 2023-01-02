@@ -5,13 +5,30 @@ import { pokemonCatch, pokemonRelease } from '../../app/pokemon/pokemonSlice';
 import NoImage from '../../utils/images/no_image.png';
 import ProfileCardSection from './ProfileCardSection';
 
+/**
+ * Type definition of properties of the component
+ * @date 2023. 01. 02. - 16:46:32
+ *
+ * @typedef {tProps}
+ */
 type tProps = {
   profile: tPokemonProfile;
   catched: boolean;
 };
 
+/**
+ * Profile card component for profile page of a Pokémon
+ * @date 2023. 01. 02. - 16:46:32
+ *
+ * @prop {tPokemonProfile} profile Profile data of the Pokémon
+ * @prop {boolean} catched Show the Pokémon is catched or not
+ * @returns {JSX.Element}
+ */
 function ProfileCard(props: tProps) {
   const dispatch = useAppDispatch();
+  const hoverShadow = props.catched
+    ? 'hover:shadow-[0_0_1px_1px_#000,inset_0_0_10px_0_#b1dcf1]'
+    : 'hover:shadow-[0_0_1px_1px_#000,inset_0_0_10px_0_#f6ce09]';
 
   const onClick = () => {
     dispatch(props.catched ? pokemonRelease(props.profile.name) : pokemonCatch(props.profile.name));
@@ -39,10 +56,10 @@ function ProfileCard(props: tProps) {
       />
       <button
         onClick={onClick}
-        className="group flex items-center gap-[5px] bg-[#fff] cursor-pointer border border-[#000] rounded-full p-[5px_10px] m-[25px_auto] hover:shadow-[inset_0_0_10px_0_#f6ce09] transition-all "
+        className={`group flex items-center gap-[5px] bg-[#fff] rounded-full p-[5px_10px] m-[25px_auto] transition-all duration-500 shadow-[0_0_1px_1px_#000] ${hoverShadow}`}
       >
-        <PokeBall className="group-hover:rotate-[360deg] duration-500 w-[1.5rem] h-[1.5rem]" />
-        <span className="uppercase text-[1.5rem]">{props.catched ? 'Release' : 'Catch it!'}</span>
+        <PokeBall className="group-hover:rotate-[180deg] duration-500 w-[1.5rem] h-[1.5rem]" />
+        <span className="uppercase text-[1.5rem]">{props.catched ? 'Release' : 'Catch it'}</span>
       </button>
     </div>
   );

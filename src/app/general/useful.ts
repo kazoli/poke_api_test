@@ -32,6 +32,25 @@ export const getLocalStorage = (key: string) => {
 };
 
 /**
+ * Alphabetic reordering that can manage ascend and descend order
+ * @date 2023. 01. 02. - 13:50:55
+ *
+ * @param {{ [key: string]: string }[]} array
+ * @param {string} key
+ * @param {string} order
+ * @returns {{ [key: string]: string }[]}
+ */
+export const alphabetReorder = (
+  array: { [key: string]: string }[],
+  key: string,
+  ascend: boolean = true,
+) => {
+  return ascend
+    ? array.sort((a, b) => a[key].localeCompare(b[key], undefined, { sensitivity: 'accent' }))
+    : array.sort((a, b) => b[key].localeCompare(a[key], undefined, { sensitivity: 'accent' }));
+};
+
+/**
  * Change string first letter to capital one
  * @date 2022. 12. 28. - 13:03:06
  *

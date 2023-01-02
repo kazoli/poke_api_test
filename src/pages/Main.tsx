@@ -23,10 +23,9 @@ function Main() {
   const [pokemonList, setPokemonList] = useState<tPokemonReduxState['list']>([]);
 
   useEffect(() => {
-    document.title = 'Main page';
-    //TODO
+    document.title = 'Pokémon catcher';
     if (pokemon.types === null) {
-      //dispatch(pokemonGetTypes(pokeApiUrl + 'type?limit=10000&offset=0'));
+      dispatch(pokemonGetTypes(pokeApiUrl + 'type?limit=10000&offset=0'));
     }
   }, [dispatch, pokemon.types]);
 
@@ -53,8 +52,10 @@ function Main() {
   }, [dispatch, selectedTypeUrl]);
 
   useEffect(() => {
-    setPokemonList(filterPokemonList(pokemon.list, pokemon.listCatched, pokemon.typeFilter));
-  }, [pokemon.list, pokemon.listCatched, pokemon.typeFilter]);
+    setPokemonList(
+      filterPokemonList(pokemon.list, pokemon.listCatched, pokemon.catched, pokemon.listFilter),
+    );
+  }, [pokemon.list, pokemon.listCatched, pokemon.catched, pokemon.listFilter]);
 
   return (
     pokemon.types && (
@@ -63,7 +64,7 @@ function Main() {
           <SearchBar
             pokemonListCatched={pokemon.listCatched}
             pokemonTypeSelected={pokemon.typeSelected}
-            pokemonTypeFilter={pokemon.typeFilter}
+            pokemonListFilter={pokemon.listFilter}
             pokemonTypes={pokemonTypes}
           />
           <List pokemonList={pokemonList} pokemonCatched={pokemon.catched} />

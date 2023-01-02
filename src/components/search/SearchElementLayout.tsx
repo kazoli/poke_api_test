@@ -1,10 +1,24 @@
 import { ReactNode } from 'react';
 
+/**
+ * Type definition of properties of the component
+ * @date 2023. 01. 02. - 16:13:05
+ *
+ * @typedef {tProps}
+ */
 type tProps = {
   children: ReactNode;
   className: string;
 };
 
+/**
+ * Layout for elements of search bar
+ * @date 2023. 01. 02. - 16:13:05
+ *
+ * @prop {ReactNode} children Children elements of component
+ * @prop {string} className Complementary class elements for basic design
+ * @returns {JSX.Element}
+ */
 function SearchElementLayout(props: tProps) {
   return (
     <div

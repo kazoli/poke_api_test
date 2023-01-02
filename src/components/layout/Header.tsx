@@ -21,10 +21,7 @@ function Header() {
           classContainer="relative"
           classList="bg-[#ffffff] whitespace-nowrap right-0 border border-black peer-focus:block active:block"
           classElement="block cursor-pointer p-[5px_10px] hover:bg-[#2b96d4] hover:text-[#ffffff]"
-          options={[
-            { key: '/', value: 'Main page' },
-            { key: '/catched', value: 'My catched Pokémons' },
-          ]}
+          options={[{ key: '/', value: 'Main page' }]}
           action={(value) => navigate(value)}
         />
       </Positioner>

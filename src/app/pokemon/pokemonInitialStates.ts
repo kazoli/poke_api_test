@@ -1,6 +1,3 @@
-import { dummyTypeList } from './dummyTypeList.js'; //TODO remove
-import { dummyTypes } from './dummyTypes.js'; //TODO remove
-import { dummyProfile } from './dummyProfile.js'; //TODO remove
 import { tPokemonReduxState } from './pokemonTypes';
 import { getLocalStorage } from '../general/useful';
 
@@ -11,14 +8,11 @@ export const pokeApiImageUrl = (id: number) =>
 
 export const initialPokemonReduxState: tPokemonReduxState = {
   status: 'idle',
-  typeSelected: 'No selected type',
-  typeFilter: '',
-  types: dummyTypes, // TODO remove
+  typeSelected: 'Select type',
+  listFilter: '',
   listCatched: false,
-  list: dummyTypeList, // TODO remove
-  // profile: dummyProfile, // TODO remove
-  // types: null,
-  // list: [],
+  types: null,
+  list: [],
   profile: {
     imageUrl: '',
     name: '',

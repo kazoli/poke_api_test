@@ -7,6 +7,12 @@ import { arrayIncludes } from '../app/general/useful';
 import DefaultLayout from '../components/layout/DefaultLayout';
 import ProfileCard from '../components/profile/ProfileCard';
 
+/**
+ * Profile page of a Pokémon
+ * @date 2023. 01. 02. - 16:04:33
+ *
+ * @returns {JSX.Element}
+ */
 function Profile() {
   const location = useLocation();
   const navigate = useNavigate();

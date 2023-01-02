@@ -1,3 +1,4 @@
+import { arrayIncludes } from '../general/useful';
 import { tPokemonReduxState } from './pokemonTypes';
 
 /**
@@ -11,13 +12,16 @@ import { tPokemonReduxState } from './pokemonTypes';
 export const filterPokemonList = (
   list: tPokemonReduxState['list'],
   listCatched: tPokemonReduxState['listCatched'],
+  catched: tPokemonReduxState['catched'],
   keyword: string,
 ) => {
   keyword = keyword.trim();
   if (keyword) {
     const regexp = new RegExp(`^${keyword}.*$`, 'i');
-    return list.filter((element) => element.name.match(regexp));
-  } else {
-    return list;
+    list = list.filter((element) => element.name.match(regexp));
   }
+  if (listCatched) {
+    list = list.filter((element) => arrayIncludes(catched, element.name));
+  }
+  return list;
 };

@@ -1,8 +1,8 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 import { initialPokemonReduxState, pokeApiImageUrl } from './pokemonInitialStates';
 import { pokemonGetTypes, pokemonGetList, pokemonGetProfile } from './pokemonThunks';
-import { tPokemonProfile } from './pokemonTypes';
-import { firstCapital, getLocalStorage, setLocalStorage } from '../general/useful';
+import { tPokemonReduxState } from './pokemonTypes';
+import { alphabetReorder, firstCapital, setLocalStorage } from '../general/useful';
 
 const pokemonSlice = createSlice({
   name: 'pokemon',
@@ -12,7 +12,7 @@ const pokemonSlice = createSlice({
       state.typeSelected = action.payload;
     },
     pokemonFilterType: (state, action: PayloadAction<string>) => {
-      state.typeFilter = action.payload;
+      state.listFilter = action.payload;
     },
     pokemonListCatched: (state) => {
       state.listCatched = !state.listCatched;
@@ -37,7 +37,11 @@ const pokemonSlice = createSlice({
       })
       .addCase(pokemonGetTypes.fulfilled, (state, action) => {
         state.status = 'idle';
-        state.types = action.payload.map((type) => ({ ...type, name: firstCapital(type.name) }));
+        const list = action.payload.map((type) => ({
+          ...type,
+          name: firstCapital(type.name),
+        }));
+        state.types = alphabetReorder(list, 'name') as tPokemonReduxState['types'];
       })
       .addCase(pokemonGetTypes.rejected, (state) => {
         state.status = 'failed';
@@ -49,10 +53,11 @@ const pokemonSlice = createSlice({
       })
       .addCase(pokemonGetList.fulfilled, (state, action) => {
         state.status = 'idle';
-        state.list = action.payload.map((data) => ({
+        const list = action.payload.map((data) => ({
           name: firstCapital(data.pokemon.name),
           url: data.pokemon.url,
         }));
+        state.list = alphabetReorder(list, 'name') as tPokemonReduxState['list'];
       })
       .addCase(pokemonGetList.rejected, (state) => {
         state.status = 'failed';
@@ -65,7 +70,7 @@ const pokemonSlice = createSlice({
       .addCase(pokemonGetProfile.fulfilled, (state, action) => {
         state.status = 'idle';
         const notHiddenAbilities = action.payload.abilities.reduce(
-          (prevAbilities: tPokemonProfile['notHiddenAbilities'], ability) => {
+          (prevAbilities: tPokemonReduxState['profile']['notHiddenAbilities'], ability) => {
             if (!ability.is_hidden) prevAbilities.push(firstCapital(ability.ability.name));
             return prevAbilities;
           },

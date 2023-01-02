@@ -41,7 +41,7 @@ export type tPokemonProfile = {
 export type tPokemonReduxState = {
   status: 'idle' | 'loading' | 'failed';
   typeSelected: string;
-  typeFilter: string;
+  listFilter: string;
   types: null | tPokemonTypes;
   listCatched: boolean;
   list: tPokemonListElement[];
