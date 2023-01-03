@@ -42,7 +42,7 @@ function Profile() {
   }, [dispatch, navigate, pokemon.status]);
 
   return (
-    <DefaultLayout>
+    <DefaultLayout loading={pokemon.status === 'loading'}>
       <div className="flex flex-wrap justify-center">
         <div className="w-[100%] text-center mb-[20px]">
           <Link className="text-[#0000ff] hover:underline" to="\">
