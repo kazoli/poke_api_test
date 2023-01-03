@@ -7,6 +7,7 @@ import {
   pokemonSelectType,
 } from '../../app/pokemon/pokemonSlice';
 import { MdClear } from 'react-icons/md';
+import { ReactComponent as PokeBall } from '../../utils/images/Pokeball.svg';
 import SearchTypeSelector from './SearchTypeSelector';
 import DropDownMenu from '../general/DropDownMenu';
 import SearchElementLayout from './SearchElementLayout';
@@ -39,25 +40,26 @@ function SearchBar(props: tProps) {
 
   return (
     <section className="relative flex flex-wrap items-center gap-[15px]">
-      <DropDownMenu
-        selector={<SearchTypeSelector selectedType={props.pokemonTypeSelected} />}
-        classContainer="flex-[1_1_150px]"
-        classList="peer-focus:grid active:grid grid-cols-[repeat(auto-fill,minmax(120px,1fr))] gap-[15px] left-0 right-0 mt-[15px] border border-[#000] p-[15px] rounded-[2px] bg-[#fcfefe] shadow-[inset_0_0_50px_0_#b1dcf1]"
-        classElement="cursor-pointer border border-[#000000] bg-[#fff] rounded-[2px]"
-        options={props.pokemonTypes}
-        action={(value) => dispatch(pokemonSelectType(value))}
-      />
-      <SearchElementLayout className="flex-auto flex items-center gap-[5px]">
-        <input
-          id="list-catched"
-          type="checkbox"
-          className="appearance-none checked:bg-[url('../utils/images/Pokeball.svg')] bg-no-repeat checked:shadow-[0_0_1px_0_#000,inset_0_0_1px_0_#000] shadow-[0_0_1px_1px_#000] rounded-full w-[1rem] h-[1rem] cursor-pointer outline-none"
-          checked={props.pokemonListCatched}
-          onChange={() => dispatch(pokemonListCatched())}
+      <SearchElementLayout className="flex-[1_1_150px]">
+        <DropDownMenu
+          selector={<SearchTypeSelector selectedType={props.pokemonTypeSelected} />}
+          classContainer="w-[100%]"
+          classList="peer-focus:grid active:grid grid-cols-[repeat(auto-fill,minmax(120px,1fr))] gap-[15px] left-0 right-0 mt-[30px] border border-[#000] p-[15px] rounded-[2px] bg-[#fcfefe] shadow-[inset_0_0_50px_0_#b1dcf1]"
+          classElement="cursor-pointer border border-[#000000] bg-[#fff] rounded-[2px]"
+          options={props.pokemonTypes}
+          action={(value) => dispatch(pokemonSelectType(value))}
         />
-        <label htmlFor="list-catched" className="cursor-pointer">
-          Catched only
-        </label>
+      </SearchElementLayout>
+      <SearchElementLayout className="flex-auto">
+        <div
+          className="flex items-center gap-[5px] cursor-pointer"
+          onClick={() => dispatch(pokemonListCatched())}
+        >
+          <button className="shadow-[0_0_1px_1px_#000,inset_0_0_1px_0_#000] rounded-full w-[1rem] h-[1rem]">
+            {props.pokemonListCatched && <PokeBall className="w-[1rem] h-[1rem]" />}
+          </button>
+          <span>Catched only</span>
+        </div>
       </SearchElementLayout>
       <SearchElementLayout className="flex-[10000_10000_300px] flex items-center gap-[5px]">
         <label htmlFor="list-filter">Filter:</label>

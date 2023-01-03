@@ -5,7 +5,7 @@ import Footer from './Footer';
 import Positioner from './Positioner';
 
 /**
- * Type definition for the props
+ * Type definition of properties of the component
  * @date 2022. 12. 20. - 14:01:09
  *
  * @typedef {tProps}
@@ -16,10 +16,11 @@ type tProps = {
 };
 
 /**
- * Default layout that wraps content of pages
+ * Default layout component that wraps content of pages
  * @date 2022. 12. 20. - 14:01:09
  *
- * @param {tProps} props
+ * @prop {ReactNode} children Children elements of component
+ * @prop {undefined | boolean} loading Loading component to show or not
  * @returns {JSX.Element}
  */
 function DefaultLayout(props: tProps) {

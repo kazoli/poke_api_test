@@ -1,6 +1,13 @@
 import axios, { AxiosError } from 'axios';
 import { toast } from 'react-toastify';
 
+/**
+ * Error handler function for axios errors
+ * @date 2023. 01. 03. - 13:40:39
+ *
+ * @param {unknown} err The error object received
+ * @returns {string}
+ */
 export const errorHandler = (err: unknown): string => {
   const error = err as Error | AxiosError;
   let message = '';

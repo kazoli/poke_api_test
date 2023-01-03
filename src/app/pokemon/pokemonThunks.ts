@@ -3,6 +3,14 @@ import { createAsyncThunk } from '@reduxjs/toolkit';
 import { errorHandler } from '../general/error';
 import { tPokemonListElement, tPokemonTypes } from './pokemonTypes';
 
+/**
+ * Get all types of Pokémons to drop down menu in search bar with `createAsyncThunk` from `@reduxjs/toolkit`
+ * @date 2023. 01. 03. - 11:54:26
+ *
+ * @param {string} typePrefix Promise lifecycle action types based on the action type prefix
+ * @param payloadCreator A callback function that should return a promise containing the result of asynchronous logic
+ * @returns {response: tPokemonTypes | errorMessage: string}
+ */
 export const pokemonGetTypes = createAsyncThunk<tPokemonTypes, string, { rejectValue: string }>(
   'pokemon/pokemonGetTypes',
   async (query, thunkAPI) => {
@@ -15,6 +23,14 @@ export const pokemonGetTypes = createAsyncThunk<tPokemonTypes, string, { rejectV
   },
 );
 
+/**
+ * Get all Pokémons for a type with `createAsyncThunk` from `@reduxjs/toolkit`
+ * @date 2023. 01. 03. - 11:54:26
+ *
+ * @param {string} typePrefix Promise lifecycle action types based on the action type prefix
+ * @param payloadCreator A callback function that should return a promise containing the result of asynchronous logic
+ * @returns {response: { pokemon: tPokemonListElement; slot: number }[] | errorMessage: string}
+ */
 export const pokemonGetList = createAsyncThunk<
   { pokemon: tPokemonListElement; slot: number }[],
   string,
@@ -28,6 +44,20 @@ export const pokemonGetList = createAsyncThunk<
   }
 });
 
+/**
+ * Get profile data of a Pokémon with `createAsyncThunk` from `@reduxjs/toolkit`
+ * @date 2023. 01. 03. - 11:54:26
+ *
+ * @param {string} typePrefix Promise lifecycle action types based on the action type prefix
+ * @param payloadCreator A callback function that should return a promise containing the result of asynchronous logic
+ * @returns {response: {
+ * id: number;
+ * name: string;
+ * weight: number;
+ * height: number;
+ * abilities: { ability: { name: string; url: string }; is_hidden: boolean; slot: number }[];
+ * } | errorMessage: string}
+ */
 export const pokemonGetProfile = createAsyncThunk<
   {
     id: number;

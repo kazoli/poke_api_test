@@ -2,8 +2,8 @@
  * Set data into localstorage
  * @date 2022. 12. 28. - 13:03:06
  *
- * @param {string} key
- * @param {(string | object | object[])} value
+ * @param {string} key The key name of local storage element
+ * @param {(string | object | object[])} value The value that will be stored to the key
  */
 export const setLocalStorage = (key: string, value: string | object | object[]) => {
   if (typeof value !== 'string') value = JSON.stringify(value);
@@ -14,7 +14,7 @@ export const setLocalStorage = (key: string, value: string | object | object[]) 
  * Get data from localstorage
  * @date 2022. 12. 28. - 13:03:06
  *
- * @param {string} key
+ * @param {string} key The key name of local storage element
  * @returns {string | object | object[]}
  */
 export const getLocalStorage = (key: string) => {
@@ -32,12 +32,12 @@ export const getLocalStorage = (key: string) => {
 };
 
 /**
- * Alphabetic reordering that can manage ascend and descend order
+ * Alphabetic reordering that can manage ascend and descend ordering and accent is taking into considertion as well
  * @date 2023. 01. 02. - 13:50:55
  *
- * @param {{ [key: string]: string }[]} array
- * @param {string} key
- * @param {string} order
+ * @param {{ [key: string]: string }[]} array Array that will be reordered
+ * @param {string} key The key by which the array will be reordered
+ * @param {boolean} ascend Direction of order
  * @returns {{ [key: string]: string }[]}
  */
 export const alphabetReorder = (
@@ -60,11 +60,11 @@ export const alphabetReorder = (
 export const firstCapital = (value: string) => value.charAt(0).toUpperCase() + value.slice(1);
 
 /**
- * Check an array contains an element (by the fastest indexOf method)
+ * Check an array contains an element
  * @date 2023. 01. 01. - 14:39:52
  *
- * @param {string[]} haystack
- * @param {string} needle
+ * @param {string[]} haystack The array in which it searches
+ * @param {string} needle Subject of search
  * @returns {boolean}
  */
 export const arrayIncludes = (haystack: string[], needle: string) =>

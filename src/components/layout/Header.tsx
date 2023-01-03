@@ -3,8 +3,9 @@ import { HiOutlineMenu } from 'react-icons/hi';
 import Positioner from './Positioner';
 import Logo from './Logo';
 import DropDownMenu from '../general/DropDownMenu';
+
 /**
- * Header for layouts that contains navigation
+ * Header component for layouts that contains logo and navigation
  * @date 2022. 12. 20. - 14:08:47
  *
  * @returns {JSX.Element}
@@ -19,8 +20,8 @@ function Header() {
         <DropDownMenu
           selector={<HiOutlineMenu className="text-[2rem] cursor-pointer outline-none" />}
           classContainer="relative"
-          classList="bg-[#ffffff] whitespace-nowrap right-0 border border-black peer-focus:block active:block"
-          classElement="block cursor-pointer p-[5px_10px] hover:bg-[#2b96d4] hover:text-[#ffffff]"
+          classList="bg-[#ffffff] whitespace-nowrap right-0 border-t border-black peer-focus:block active:block"
+          classElement="block cursor-pointer p-[5px_10px] hover:text-[#fff] hover:shadow-[inset_0_0_75px_0_#288ac3] border-x border-b border-black"
           options={[{ key: '/', value: 'Main page' }]}
           action={(value) => navigate(value)}
         />

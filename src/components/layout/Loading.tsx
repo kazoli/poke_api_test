@@ -1,7 +1,7 @@
 import { ReactComponent as PokeBall } from '../../utils/images/Pokeball.svg';
 
 /**
- * Loading spinner
+ * Loading sign component
  * @date 2022. 12. 20. - 14:18:52
  *
  * @returns {JSX.Element}

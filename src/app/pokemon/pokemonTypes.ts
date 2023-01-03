@@ -1,27 +1,39 @@
 /**
- * Pokemon types type declaration
+ * Type definition for Pokémon types
  * @date 2022. 12. 28. - 16:56:56
  *
  * @export
- * @typedef {tPokemonTypes}
+ * @typedef {tPokemonTypes : {
+ * name: string;
+ * url: string;
+ * }[]}
  */
 export type tPokemonTypes = { name: string; url: string }[];
 
 /**
- * Pokemon list element type declaration
+ * Type definition for Pokémon list element
  * @date 2022. 12. 28. - 16:56:56
  *
  * @export
- * @typedef {tPokemonListElement}
+ * @typedef {tPokemonListElement : {
+ * name: string;
+ * url: string;
+ * }}
  */
 export type tPokemonListElement = { name: string; url: string };
 
 /**
- * Pokemon profile type declaration
+ * Type definition for Pokémon profile
  * @date 2022. 12. 28. - 16:56:56
  *
  * @export
- * @typedef {tPokemonProfile}
+ * @typedef {tPokemonProfile : {
+ * imageUrl: string;
+ * name: string;
+ * weight: string;
+ * height: string;
+ * notHiddenAbilities: string[];
+ * }}
  */
 export type tPokemonProfile = {
   imageUrl: string;
@@ -32,18 +44,27 @@ export type tPokemonProfile = {
 };
 
 /**
- * Pokemon redux state type declaration
+ * Type definition for Pokémon redux state
  * @date 2022. 12. 28. - 16:56:56
  *
  * @export
- * @typedef {tPokemonReduxState}
+ * @typedef {tPokemonReduxState : {
+ * status: 'idle' | 'loading' | 'failed';
+ * typeSelected: string;
+ * types: null | tPokemonTypes;
+ * listCatched: boolean;
+ * listFilter: string;
+ * list: tPokemonListElement[];
+ * profile: tPokemonProfile;
+ * catched: string[];
+ * }}
  */
 export type tPokemonReduxState = {
   status: 'idle' | 'loading' | 'failed';
   typeSelected: string;
-  listFilter: string;
   types: null | tPokemonTypes;
   listCatched: boolean;
+  listFilter: string;
   list: tPokemonListElement[];
   profile: tPokemonProfile;
   catched: string[];

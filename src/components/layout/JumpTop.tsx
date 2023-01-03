@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 import { AiOutlineUpCircle } from 'react-icons/ai';
 
 /**
- * Jump top icon
+ * Jump to top component
  * @date 2022. 12. 20. - 14:18:24
  *
  * @returns {JSX.Element}

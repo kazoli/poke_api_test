@@ -1,7 +1,7 @@
 import { ReactComponent as PokeBall } from '../../utils/images/Pokeball.svg';
 
 /**
- * Props of logo
+ * Type definition of properties of the component
  * @date 2022. 12. 26. - 12:26:31
  *
  * @typedef {tProps}
@@ -11,10 +11,10 @@ type tProps = {
 };
 
 /**
- * Logo
+ * Logo component
  * @date 2022. 12. 26. - 12:26:31
  *
- * @param {tProps} props
+ * @prop {() => void} navigate Function for navigation
  * @returns {JSX.Element}
  */
 function Logo(props: tProps) {

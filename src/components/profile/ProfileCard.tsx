@@ -1,7 +1,7 @@
 import { tPokemonProfile } from '../../app/pokemon/pokemonTypes';
-import { ReactComponent as PokeBall } from '../../utils/images/Pokeball.svg';
 import { useAppDispatch } from '../../app/general/hooks';
 import { pokemonCatch, pokemonRelease } from '../../app/pokemon/pokemonSlice';
+import { ReactComponent as PokeBall } from '../../utils/images/Pokeball.svg';
 import NoImage from '../../utils/images/no_image.png';
 import ProfileCardSection from './ProfileCardSection';
 

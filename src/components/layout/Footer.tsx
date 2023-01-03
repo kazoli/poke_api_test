@@ -1,7 +1,7 @@
 import Positioner from './Positioner';
 
 /**
- * Footer for layouts
+ * Footer component
  * @date 2022. 12. 20. - 14:08:18
  *
  * @returns {JSX.Element}

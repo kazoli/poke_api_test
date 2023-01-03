@@ -4,6 +4,13 @@ import { pokemonGetTypes, pokemonGetList, pokemonGetProfile } from './pokemonThu
 import { tPokemonReduxState } from './pokemonTypes';
 import { alphabetReorder, firstCapital, setLocalStorage } from '../general/useful';
 
+/**
+ * Pokémon reducers and extra reducers with `createSlice` from `@reduxjs/toolkit`
+ * @date 2023. 01. 03. - 11:54:26
+ *
+ * @param {WritableDraft<tPokemonReduxState>} state State object of `@reduxjs/toolkit`
+ * @param {PayloadAction} action Contains value sent and type of reducer
+ */
 const pokemonSlice = createSlice({
   name: 'pokemon',
   initialState: initialPokemonReduxState,
