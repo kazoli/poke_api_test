@@ -22,6 +22,9 @@
 }
 
 @layer components {
+  .search-bar-element {
+    @apply flex rounded-full shadow-[inset_0_0_10px_5px_#e2be09,0_0_5px_1px_#247eb2] p-[15px_25px];
+  }
 }
 
 @layer utilities {

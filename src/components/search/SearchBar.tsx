@@ -10,7 +10,6 @@ import { MdClear } from 'react-icons/md';
 import { ReactComponent as PokeBall } from '../../utils/images/Pokeball.svg';
 import SearchTypeSelector from './SearchTypeSelector';
 import DropDownMenu from '../general/DropDownMenu';
-import SearchElementLayout from './SearchElementLayout';
 
 /**
  * Type definition of properties of the component
@@ -40,7 +39,7 @@ function SearchBar(props: tProps) {
 
   return (
     <section className="relative flex flex-wrap items-center gap-[15px]">
-      <SearchElementLayout className="flex-[1_1_150px]">
+      <div className="search-bar-element flex-[1_1_150px]">
         <DropDownMenu
           selector={<SearchTypeSelector selectedType={props.pokemonTypeSelected} />}
           classContainer="w-[100%]"
@@ -49,19 +48,17 @@ function SearchBar(props: tProps) {
           options={props.pokemonTypes}
           action={(value) => dispatch(pokemonSelectType(value))}
         />
-      </SearchElementLayout>
-      <SearchElementLayout className="flex-auto">
-        <div
-          className="flex items-center gap-[5px] cursor-pointer"
-          onClick={() => dispatch(pokemonListCatched())}
-        >
-          <button className="shadow-[0_0_1px_1px_#000,inset_0_0_1px_0_#000] rounded-full w-[1rem] h-[1rem]">
-            {props.pokemonListCatched && <PokeBall className="w-[1rem] h-[1rem]" />}
-          </button>
-          <span>Catched only</span>
-        </div>
-      </SearchElementLayout>
-      <SearchElementLayout className="flex-[10000_10000_300px] flex items-center gap-[5px]">
+      </div>
+      <div
+        className="search-bar-element flex-auto flex items-center gap-[5px] cursor-pointer"
+        onClick={() => dispatch(pokemonListCatched())}
+      >
+        <button className="shadow-[0_0_1px_1px_#000,inset_0_0_1px_0_#000] rounded-full w-[1rem] h-[1rem]">
+          {props.pokemonListCatched && <PokeBall className="w-[1rem] h-[1rem]" />}
+        </button>
+        <span>Catched only</span>
+      </div>
+      <div className="search-bar-element flex-[10000_10000_300px] flex items-center gap-[5px]">
         <label htmlFor="list-filter">Filter:</label>
         <input
           id="list-filter"
@@ -77,7 +74,7 @@ function SearchBar(props: tProps) {
           title="Clear filter text"
           onClick={() => dispatch(pokemonFilterType(''))}
         />
-      </SearchElementLayout>
+      </div>
     </section>
   );
 }
