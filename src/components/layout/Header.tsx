@@ -1,6 +1,5 @@
 import { useNavigate } from 'react-router-dom';
 import { HiOutlineMenu } from 'react-icons/hi';
-import Positioner from './Positioner';
 import Logo from './Logo';
 import DropDownMenu from '../general/DropDownMenu';
 
@@ -15,7 +14,7 @@ function Header() {
 
   return (
     <header className="sticky top-0 z-[1000] bg-[#ffffff] border-y border-[#000000]">
-      <Positioner className="flex items-center justify-between py-[5px]">
+      <div className="layout-positioner flex items-center justify-between py-[5px]">
         <Logo navigate={() => navigate('/')} />
         <DropDownMenu
           selector={<HiOutlineMenu className="text-[2rem] cursor-pointer outline-none" />}
@@ -25,7 +24,7 @@ function Header() {
           options={[{ key: '/', value: 'Main page' }]}
           action={(value) => navigate(value)}
         />
-      </Positioner>
+      </div>
     </header>
   );
 }
