@@ -25,11 +25,11 @@ type tProps = {
 };
 
 /**
- * Description placeholder
+ * Search bar for main page
  * @date 2023. 01. 02. - 16:31:37
  *
  * @prop {tPokemonReduxState['listCatched']} pokemonListCatched Catched Pokémons list
- * @prop {tPokemonReduxState['typeSelected']} pokemonTypeSelected Name of the selected Pokémon
+ * @prop {tPokemonReduxState['typeSelected']} pokemonTypeSelected Name of the selected Pokémon type
  * @prop {tPokemonReduxState['listFilter']} pokemonListFilter Filtering text for Pokémon list
  * @prop {tDropDownOptions} pokemonTypes Pokémon types for drop down menu
  * @returns {JSX.Element}

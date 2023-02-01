@@ -45,9 +45,11 @@ export const alphabetReorder = (
   key: string,
   ascend: boolean = true,
 ) => {
+  const sorting = (a: { [key: string]: string }, b: { [key: string]: string }) =>
+    a[key].localeCompare(b[key], undefined, { sensitivity: 'accent' });
   return ascend
-    ? array.sort((a, b) => a[key].localeCompare(b[key], undefined, { sensitivity: 'accent' }))
-    : array.sort((a, b) => b[key].localeCompare(a[key], undefined, { sensitivity: 'accent' }));
+    ? array.sort((a, b) => sorting(a, b))
+    : array.sort((a, b) => sorting(b, a));
 };
 
 /**
