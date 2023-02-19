@@ -1,11 +1,11 @@
 import { useEffect } from 'react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
-import { useAppDispatch, useAppSelector } from '../app/general/hooks';
-import { pokemonGetProfile } from '../app/pokemon/pokemonThunks';
-import { pokemonResetProfile } from '../app/pokemon/pokemonSlice';
-import { arrayIncludes } from '../app/general/useful';
-import DefaultLayout from '../components/layout/DefaultLayout';
-import ProfileCard from '../components/profile/ProfileCard';
+import { useAppDispatch, useAppSelector } from '../../app/general/hooks';
+import { pokemonGetProfile } from '../../app/pokemon/pokemonThunks';
+import { pokemonResetProfile } from '../../app/pokemon/pokemonSlice';
+import { arrayIncludes } from '../../app/general/useful';
+import DefaultLayout from '../layout/DefaultLayout';
+import ProfileCard from '../profile/ProfileCard';
 
 /**
  * Profile page of a Pokémon

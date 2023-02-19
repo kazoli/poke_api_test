@@ -1,6 +1,6 @@
 import { useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import DefaultLayout from '../components/layout/DefaultLayout';
+import DefaultLayout from '../layout/DefaultLayout';
 
 /**
  * Not found page if wrong path were entered into URL
@@ -16,7 +16,7 @@ function NotFound() {
   return (
     <DefaultLayout>
       <div className="flex flex-wrap justify-center">
-        <h1 className='w-full text-center text-[2rem]'>Requested page is not found!</h1>
+        <h1 className="w-full text-center text-[2rem]">Requested page is not found!</h1>
         <Link to="/" className="text-[#0000ff] text-[1.25rem] hover:underline">
           Go back to main page
         </Link>

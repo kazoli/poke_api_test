@@ -1,14 +1,14 @@
 import { useEffect, useMemo, useState } from 'react';
-import { useAppDispatch, useAppSelector } from '../app/general/hooks';
-import { tDropDownOptions } from '../app/general/types';
-import { filterPokemonList } from '../app/pokemon/pokemonMiddleware';
-import { pokeApiUrl } from '../app/pokemon/pokemonInitialStates';
-import { tPokemonReduxState } from '../app/pokemon/pokemonTypes';
-import { pokemonGetTypes, pokemonGetList } from '../app/pokemon/pokemonThunks';
-import DefaultLayout from '../components/layout/DefaultLayout';
-import SearchBar from '../components/search/SearchBar';
-import SearchTypeElement from '../components/search/SearchTypeElement';
-import List from '../components/list/List';
+import { useAppDispatch, useAppSelector } from '../../app/general/hooks';
+import { tDropDownOptions } from '../../app/general/types';
+import { filterPokemonList } from '../../app/pokemon/pokemonMiddleware';
+import { pokeApiUrl } from '../../app/pokemon/pokemonInitialStates';
+import { tPokemonReduxState } from '../../app/pokemon/pokemonTypes';
+import { pokemonGetTypes, pokemonGetList } from '../../app/pokemon/pokemonThunks';
+import DefaultLayout from '../layout/DefaultLayout';
+import SearchBar from '../search/SearchBar';
+import SearchTypeElement from '../search/SearchTypeElement';
+import List from '../list/List';
 
 /**
  * Main page

@@ -1,9 +1,8 @@
 import { Provider } from 'react-redux';
-import { store } from '../app/general/store';
+import { store } from '../../app/general/store';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-import '../styles/index.css';
-import JumpTop from '../components/layout/JumpTop';
+import JumpTop from '../layout/JumpTop';
 import Router from './Router';
 
 /**
