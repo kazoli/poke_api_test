@@ -2,8 +2,8 @@ import { tPokemonProfile } from '../../app/pokemon/pokemonTypes';
 import { useAppDispatch } from '../../app/general/hooks';
 import { pokemonCatch, pokemonRelease } from '../../app/pokemon/pokemonSlice';
 import { ReactComponent as PokeBall } from '../../utils/images/Pokeball.svg';
-import NoImage from '../../utils/images/no_image.png';
 import ProfileCardSection from './ProfileCardSection';
+import Image from '../general/Image';
 
 /**
  * Type definition of properties of the component
@@ -36,14 +36,10 @@ function ProfileCard(props: tProps) {
 
   return (
     <div className="inline-block w-[100%] sm:w-[auto] bg-[#fcfcfc] min-w-[330px] shadow-[inset_0_0_10px_5px_#e2be09,0_0_5px_1px_#247eb2] p-[0_25px] rounded-[50px] text-center">
-      <img
+      <Image
         className="h-[100px] m-[15px_auto_0_auto]"
         src={props.profile.imageUrl}
         alt={props.profile.name}
-        onError={(e) => {
-          e.currentTarget.onerror = null; // prevents looping
-          e.currentTarget.src = NoImage; // loads no image
-        }}
       />
       <section className="text-[2rem] m-[0_0_0_0]">{props.profile.name}</section>
       <ProfileCardSection label="Weight" data={`${props.profile.weight} kilograms`} />

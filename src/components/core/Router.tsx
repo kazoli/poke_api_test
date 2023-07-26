@@ -11,7 +11,7 @@ import NotFound from '../pages/NotFound';
  */
 function Router() {
   return (
-    <BrowserRouter>
+    <BrowserRouter basename="/">
       <Routes>
         <Route path="/" element={<Main />} />
         <Route path="/profile" element={<Profile />} />

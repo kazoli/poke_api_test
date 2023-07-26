@@ -45,7 +45,7 @@ function Profile() {
     <DefaultLayout loading={pokemon.status === 'loading'}>
       <div className="flex flex-wrap justify-center">
         <div className="w-[100%] text-center mb-[20px]">
-          <Link className="text-[#0000ff] hover:underline" to="\">
+          <Link className="text-[#0000ff] hover:underline" to="/">
             Back to pokemon list
           </Link>
         </div>
