@@ -43,7 +43,7 @@ function SearchBar(props: tProps) {
         <DropDownMenu
           selector={<SearchTypeSelector selectedType={props.pokemonTypeSelected} />}
           classContainer="w-[100%]"
-          classList="peer-focus:grid active:grid grid-cols-[repeat(auto-fill,minmax(120px,1fr))] gap-[15px] left-0 right-0 mt-[30px] border border-[#000] p-[15px] rounded-[2px] bg-[#fcfefe] shadow-[inset_0_0_50px_0_#b1dcf1]"
+          classList="grid grid-cols-[repeat(auto-fill,minmax(120px,1fr))] gap-[15px] left-0 right-0 mt-[30px] border border-[#000] p-[15px] rounded-[2px] bg-[#fcfefe] shadow-[inset_0_0_50px_0_#b1dcf1]"
           classElement="cursor-pointer border border-[#000000] bg-[#fff] rounded-[2px]"
           options={props.pokemonTypes}
           action={(value) => dispatch(pokemonSelectType(value))}
