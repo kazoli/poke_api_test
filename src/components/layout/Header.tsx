@@ -19,7 +19,7 @@ function Header() {
         <DropDownMenu
           selector={<HiOutlineMenu className="text-[2rem] cursor-pointer outline-none" />}
           classContainer="relative"
-          classList="bg-[#ffffff] whitespace-nowrap right-0 border-t border-black peer-focus:block active:block"
+          classList="bg-[#ffffff] whitespace-nowrap right-0 border-t border-black"
           classElement="block cursor-pointer p-[5px_10px] hover:text-[#fff] hover:shadow-[inset_0_0_75px_0_#288ac3] border-x border-b border-black"
           options={[{ key: '/', value: 'Main page' }]}
           action={(value) => navigate(value)}
